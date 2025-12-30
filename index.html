@@ -1,187 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Zam Calendar</title>
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #0a0a0a;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px;
-  }
+  <!-- Basic metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zam Calendar</title>
 
-  /* Language Switcher */
-  .lang-switcher {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    gap: 8px;
-    background: transparent;
-    border: none;
-    border-radius: 12px;
-    padding: 8px;
-    z-index: 1000;
-  }
-  .lang-btn {
-    padding: 8px 16px;
-    background: transparent;
-    color: #9ca3af;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: all 0.2s ease;
-  }
-  .lang-btn:hover {
-    background: #1a1a1a;
-    color: #fff;
-  }
-  .lang-btn.active {
-    /* No special background color for the active language */
-    background: transparent;
-    text-decoration: underline; /* Just underline to indicate selection */
-  }
+  <style>
+    /* ---------- Reset ---------- */
+    * { margin:0; padding:0; box-sizing:border-box; }
 
-  /* Hero Section */
-  h1 {
-    font-size: 3.5em;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  h1 .highlight {
-    background: linear-gradient(135deg,#e9e9e9 0%,#e9e9e9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  p.tagline {
-    font-size: 1.2em;
-    color: #9ca3af;
-    margin-bottom: 18px;
-  }
-  .download-label {
-    margin-top: 40px;
-    font-size: 1em;
-    color: #d1d5db;
-  }
-
-  /* App Card */
-  .app-card {
-    display: inline-block;
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 24px;
-    padding: 60px 40px;
-    text-decoration: none;
-    color: #fff;
-    transition: all 0.3s ease;
-  }
-  .app-card:hover {
-    transform: translateY(-5px);
-    border-color: #a855f7;
-    background: #1a1a1a;
-  }
-  .app-card .app-icon {
-    font-size: 3em;
-    margin-bottom: 20px;
-  }
-  .app-card h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  .app-card p {
-    color: #9ca3af;
-    font-size: 1em;
-  }
-
-  /* Screenshot Image */
-  .app-screenshot {
-    width: 100%;
-    max-width: 420px;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    transition: opacity 0.3s ease;
-  }
-
-  /* App Store Button */
-  .app-store-btn {
-    margin-top: 60px;
-    display: inline-block;
-  }
-  .app-store-btn img {
-    height: 50px;
-  }
-
-  /* Footer */
-  footer {
-    margin-top: 100px;
-    font-size: 0.85em;
-    color: #6b7280;
-  }
-  footer a {
-    color: #6b7280;
-    text-decoration: none;
-    margin: 0 5px;
-  }
-  footer a:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width:768px){
+    /* ---------- Page layout ---------- */
     body {
-      padding: 20px;
-      padding-top: 80px; /* Add more top padding to account for switcher */
-    }
-    
-    /* Position switcher at top with minimal top padding on mobile */
-    .lang-switcher {
-      top: 10px;
-      padding: 6px;
-    }
-    
-    h1 { 
-      font-size:2.5em; 
-      margin-top: 20px; /* Add margin top to create space below switcher */
-    }
-    p.tagline { font-size:1em; margin-bottom:30px; }
-    .app-card { padding: 40px 30px; }
+      /* System font stack */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-    /* Make buttons smaller on mobile */
-    .lang-btn {
-      padding: 3px 8px;
-      font-size: 0.7em;
-      border-radius: 4px;
+      /* Dark background */
+      background: #0a0a0a;
+      color: #fff;
+
+      /* Center content */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* Default alignment */
+      text-align: center;
+
+      /* Spacing */
+      padding: 40px;
     }
+
+    /* ---------- Language Switcher ---------- */
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      border-radius: 12px;
+      padding: 8px;
+      z-index: 1000;
+    }
+
+    .lang-btn {
+      padding: 8px 16px;
+      background: transparent;
+      color: #9ca3af;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
     .lang-btn.active {
+      /* Keep it clean: underline only */
       background: transparent;
       text-decoration: underline;
     }
-    .lang-btn:hover {
+
+    /* ---------- Hero Section ---------- */
+    h1 {
+      font-size: 3.5em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg,#e9e9e9 0%,#e9e9e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.tagline {
+      font-size: 1.2em;
+      color: #9ca3af;
+      margin-bottom: 18px;
+
+      /* Force the tagline to look like multiple lines even on big screens */
+      max-width: 56ch;          /* Controls wrapping width */
+      line-height: 1.65;        /* Makes multi-line look nicer */
+    }
+
+    .download-label {
+      margin-top: 40px;
+      font-size: 1em;
+      color: #d1d5db;
+    }
+
+    /* ---------- App Card ---------- */
+    .app-card {
+      display: inline-block;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 24px;
+      padding: 60px 40px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      border-color: #a855f7;
       background: #1a1a1a;
     }
 
-    footer {
-      margin-top: 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
+    .app-card .app-icon {
+      font-size: 3em;
+      margin-bottom: 20px;
     }
-  }
-</style>
+
+    .app-card h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .app-card p {
+      color: #9ca3af;
+      font-size: 1em;
+    }
+
+    /* ---------- Screenshot Image ---------- */
+    .app-screenshot {
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transition: opacity 0.3s ease;
+    }
+
+    /* ---------- App Store Button ---------- */
+    .app-store-btn {
+      margin-top: 60px;
+      display: inline-block;
+    }
+
+    .app-store-btn img {
+      height: 50px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      margin-top: 100px;
+      font-size: 0.85em;
+      color: #6b7280;
+    }
+
+    footer a {
+      color: #6b7280;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width:768px){
+      body {
+        padding: 20px;
+        padding-top: 80px; /* Space for the switcher */
+      }
+
+      .lang-switcher {
+        top: 10px;
+        padding: 6px;
+      }
+
+      h1 {
+        font-size: 2.5em;
+        margin-top: 20px;
+      }
+
+      p.tagline {
+        font-size: 1em;
+        margin-bottom: 30px;
+
+        /* Slightly tighter width on mobile for cleaner breaks */
+        max-width: 34ch;
+      }
+
+      .app-card { padding: 40px 30px; }
+
+      .lang-btn {
+        padding: 3px 8px;
+        font-size: 0.7em;
+        border-radius: 4px;
+      }
+
+      .lang-btn.active {
+        background: transparent;
+        text-decoration: underline;
+      }
+
+      .lang-btn:hover {
+        background: #1a1a1a;
+      }
+
+      footer {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Single Language Switcher (desktop + mobile) -->
+  <!-- Language Switcher -->
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="en">English</button>
     <button class="lang-btn" data-lang="ar">العربية</button>
@@ -189,7 +230,13 @@
 
   <!-- Hero -->
   <h1><span class="highlight">Zam Calendar</span></h1>
-  <p class="tagline" data-translate="tagline">Share your Address instantly</p>
+
+  <!-- Tagline (use <br> so it shows as multiple lines on large screens too) -->
+  <p class="tagline" data-translate="tagline">
+    Stay on top of your work shift schedule and keep track of<br>
+    company holidays, national holidays, and school breaks.<br>
+    All in one smart calendar.
+  </p>
 
   <p class="download-label" data-translate="downloadLabel">Download the app from here</p>
 
@@ -202,7 +249,7 @@
       >
     </a>
   </div>
-  
+
   <!-- App Screenshot -->
   <img
     id="app-screenshot"
@@ -210,8 +257,8 @@
     src="assets/app-screenshot.png"
     alt="Zam Calendar app screenshot on iPhone"
   />
-  
-<!-- Footer (English + Arabic versions, switched by JS) -->
+
+  <!-- Footer (English + Arabic versions, switched by JS) -->
   <footer>
     <!-- English footer (default) -->
     <div id="footer-en">
@@ -225,21 +272,27 @@
       <p>رقم توثيق المركز السعودي للأعمال # 0000155228</p>
       <p>info@damacode.com</p>
       <p>© 2025 Dama Code For Information Technology - All Rights Reserved</p>
-      <p><a href="/ar/policies/privacy-policy/" style="color: #6b7280; text-decoration: none;">سياسة الخصوصية</a></p>
+      <p><a href="ar/policies/privacy-policy/" style="color: #6b7280; text-decoration: none;">سياسة الخصوصية</a></p>
     </div>
   </footer>
 
-
   <script>
     // Translations for tagline and screenshot
+    // Note: tagline uses <br> so it renders as multiple lines on large screens too.
     const translations = {
       en: {
-        tagline: "Stay on top of your work shift schedule and keep track of company holidays, national holidays, and school breaks. All in one smart calendar.",
+        tagline:
+          "Stay on top of your work shift schedule and keep track of<br>" +
+          "company holidays, national holidays, and school breaks.<br>" +
+          "All in one smart calendar.",
         screenshot: "assets/app-screenshot.png",
         downloadLabel: "Download the app now!"
       },
       ar: {
-        tagline: "	كن دائمًا على اطلاع بجدول العمل -الشفت- وإجازات الشركة الرسمية والاجازات الوطنية، وإجازات المدارس، كلها في تقويم ذكي واحد",
+        tagline:
+          "كن دائمًا على اطلاع بجدول العمل -الشفت-<br>" +
+          "وإجازات الشركة الرسمية والاجازات الوطنية، وإجازات المدارس،<br>" +
+          "كلها في تقويم ذكي واحد",
         screenshot: "assets/app-screenshot-ar.png",
         downloadLabel: "قم بتحميل التطبيق الآن!"
       }
@@ -248,16 +301,19 @@
     // Get saved language or default to English
     let currentLang = localStorage.getItem('language') || 'en';
 
-    // Apply language on page load
+    // Apply language on page load (and whenever user changes it)
     function applyLanguage(lang) {
+      // Save language
       currentLang = lang;
       localStorage.setItem('language', lang);
-      
+
       // Update HTML attributes
       document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+      // Keep page centered (your original behavior)
       document.body.style.textAlign = 'center';
-      
+
       // Move switcher based on language and screen size
       const langSwitchers = document.querySelectorAll('.lang-switcher');
       langSwitchers.forEach(langSwitcher => {
@@ -281,20 +337,30 @@
           }
         }
       });
-      
+
       // Update all translated elements
       document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
+
+        // Tagline needs HTML (<br>), others should stay plain text
+        if (key === 'tagline' && translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+          return;
+        }
+
+        // Default: plain text for safety
         if (translations[lang][key]) {
           element.textContent = translations[lang][key];
         }
       });
-      
+
       // Update screenshot image
       const screenshot = document.getElementById('app-screenshot');
       screenshot.src = translations[lang].screenshot;
-      screenshot.alt = lang === 'ar'
-        ? 'لقطة شاشة لتطبيق لوكا شير على الآيفون'
+
+      // Update screenshot alt text
+      screenshot.alt = (lang === 'ar')
+        ? 'لقطة شاشة لتطبيق Zam Calendar على الآيفون'
         : 'Zam Calendar app screenshot on iPhone';
 
       // Switch footer content based on language
@@ -309,8 +375,8 @@
           footerAr.style.display = 'none';
         }
       }
-      
-      // Update active button
+
+      // Update active button style
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.getAttribute('data-lang') === lang) {
@@ -322,7 +388,7 @@
     // Initialize language on page load
     applyLanguage(currentLang);
 
-    // Add click handlers to language buttons
+    // Click handlers for language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
@@ -330,7 +396,7 @@
       });
     });
 
-    // Re-apply positioning on resize to keep desktop/mobile behavior correct
+    // Keep switcher positioning correct on resize
     window.addEventListener('resize', () => {
       applyLanguage(currentLang);
     });
