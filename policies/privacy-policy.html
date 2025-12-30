@@ -1,296 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Privacy Policy - ZAM Calendar">
-    <title>Privacy Policy - ZAM Calendar</title>
-    
-    <style>
-        /* Reset and Base Styles */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy - ZAM Calendar" />
+  <title>Privacy Policy - ZAM Calendar</title>
 
-        html {
-            font-size: 62.5%;
-            height: 100%;
-        }
+  <style>
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-size: 1.6rem;
-            line-height: 1.6;
-            color: rgba(0, 0, 0, 0.75);
-            background-color: #fff;
-            min-height: 100%;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
-        }
+    /* Page layout (match the Loka Share template) */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .page-width {
-            max-width: 140rem;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
+    header, footer { padding: 24px; }
 
-        /* Header Styles */
-        .header {
-            background-color: #242833;
-            color: #fff;
-            padding: 2rem 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
 
-        .header__content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 140rem;
-            margin: 0 auto;
-        }
+    a { color: #9ca3af; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-        .header__logo {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #fff;
-            text-decoration: none;
-        }
+    h1 { font-size: 2.2em; margin-bottom: 16px; }
+    h2 { font-size: 1.4em; margin: 28px 0 10px; }
 
-        .header__nav {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
+    p { color: #cbd5e1; line-height: 1.7; margin: 10px 0; }
+    ul { margin: 8px 0 8px 18px; color: #cbd5e1; }
+    li { margin: 6px 0; }
 
-        .header__nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.5rem;
-        }
+    .muted { color: #9ca3af; }
+    .divider { height: 1px; background: #222; margin: 24px 0; }
+    nav { display:flex; gap:16px; align-items:center; }
 
-        .header__nav a:hover {
-            opacity: 0.8;
-        }
+    /* Language Switcher (same as template) */
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      border-radius: 12px;
+      padding: 8px;
+      z-index: 1000;
+    }
+    .lang-btn {
+      padding: 8px 16px;
+      background: transparent;
+      color: #9ca3af;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .lang-btn.active {
+      background: transparent;
+      text-decoration: underline;
+    }
 
-        /* Main Content */
-        main {
-            padding: 4rem 0;
-        }
-
-        .policy-container {
-            max-width: 90rem;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .policy-title {
-            margin-bottom: 3rem;
-        }
-
-        .policy-title h1 {
-            font-size: 3.2rem;
-            font-weight: 400;
-            color: #000;
-        }
-
-        .policy-body h2 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            margin: 2rem 0 1rem;
-            color: #000;
-        }
-
-        .policy-body p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .policy-body strong {
-            font-weight: 700;
-            color: #000;
-        }
-
-        .policy-body em {
-            font-style: italic;
-        }
-
-        /* Footer Styles */
-        .footer {
-            background-color: #121212;
-            color: #fff;
-            padding: 7.5rem 0;
-            margin-top: 5rem;
-        }
-
-        .footer__content {
-            max-width: 140rem;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .footer__company-info {
-            margin-bottom: 3rem;
-            font-size: 1.4rem;
-            line-height: 1.8;
-        }
-
-        .footer__copyright {
-            font-size: 1.4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer__copyright a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .footer__copyright a:hover {
-            text-decoration: underline;
-        }
-
-        .policies {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2.4rem;
-            cursor: pointer;
-        }
-
-        @media screen and (max-width: 768px) {
-            .header__nav {
-                display: none;
-            }
-
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .policy-title h1 {
-                font-size: 2.4rem;
-            }
-
-            .policy-body h2 {
-                font-size: 2rem;
-            }
-
-            body {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    @media (max-width:768px){
+      .lang-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+      }
+      .lang-btn {
+        padding: 3px 8px;
+        font-size: 0.7em;
+        border-radius: 4px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header__content">
-            <a href="/" class="header__logo">ZAM Calendar</a>
-            <nav>
-                <ul class="header__nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-toggle" aria-label="Menu">☰</button>
-        </div>
-    </header>
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="ar">العربية</button>
+  </div>
 
-    <!-- Main Content -->
-    <main>
-        <div class="policy-container">
-            <div class="policy-title">
-                <h1>Privacy Policy</h1>
-            </div>
+  <header>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
-            <div class="policy-body">
-                <h2>Privacy Policy</h2>
-                
-                <p><strong>Who We Are?</strong></p>
-                <p>"Dama Code For Information Technology" is a company registered in Saudi Arabia, authenticated by the Saudi Business Center under Authentication Number #0000155228. We develop the "ZAM Calendar" App to help users manage their work schedule efficiently.<br>
-                This privacy policy outlines the types of personal information we collect from our customers, how we use it, and the choices available to them regarding its use. It also explains how customers can contact us with any questions or concerns about our practices.</p>
+  <main>
+    <h1>Privacy Policy</h1>
 
-                <p><strong>No Need for any Registration and Sign In</strong><br>
-                Our app is designed for use without requiring sign-up, registration, or sign-in. You do not need to provide your name or email, and we do not collect this information.</p>
+    <!-- Content BELOW is kept exactly as you provided (no wording changes) -->
+    <h2>Privacy Policy</h2>
 
-                <p><strong>Total Privacy We Never Access Your Personal Event Data</strong><br>
-                Your Personal Event data (means the calendar events you create) remains private and accessible <em>only</em> by you. It saved on your device (or your iCloud account, if enabled). We <em><strong>never</strong></em> have access to your event data. We <em><strong>never</strong></em> upload or save your event data on our servers.<br><br>
-                - Local Storage: All the personal event data you enter stays securely on your device.<br>
-                - iCloud Storage: If you choose to enable iCloud synchronization, your personal event data is stored in your personal iCloud account. This process is handled solely by Apple and is subject to Apple's privacy policies.</p>
+    <p><strong>Who We Are?</strong></p>
+    <p>"Dama Code For Information Technology" is a company registered in Saudi Arabia, authenticated by the Saudi Business Center under Authentication Number #0000155228. We develop the "ZAM Calendar" App to help users manage their work schedule efficiently.<br>
+    This privacy policy outlines the types of personal information we collect from our customers, how we use it, and the choices available to them regarding its use. It also explains how customers can contact us with any questions or concerns about our practices.</p>
 
-                <p><strong>We do not collect any data that directly identifies you</strong><br>
-                The information you provide below is completely <em><strong>anonymous</strong></em> and cannot be linked to your identity. It is used solely to ensure that the app functions as intended. This includes:</p>
+    <p><strong>No Need for any Registration and Sign In</strong><br>
+    Our app is designed for use without requiring sign-up, registration, or sign-in. You do not need to provide your name or email, and we do not collect this information.</p>
 
-                <p>- Country: defined as the country you select, is used to provide you with a personalized national holidays calendar, featuring public holidays specific to your country.<br>
-                - Company Name: defined as the company you select, is used to generate a holiday calendar event that reflects your organization's holiday schedule.<br>
-                - Shift Schedule: defined a the shifts you enter. Used for for analytical purposes, helping us understand usage patterns and improve the service.<br>
-                - Calendar Image: If you choose to share your calendar image, we will use it only to populate your in-app calendar. This image is not shared with any third party and is used solely for app functionality.</p>
+    <p><strong>Total Privacy We Never Access Your Personal Event Data</strong><br>
+    Your Personal Event data (means the calendar events you create) remains private and accessible <em>only</em> by you. It saved on your device (or your iCloud account, if enabled). We <em><strong>never</strong></em> have access to your event data. We <em><strong>never</strong></em> upload or save your event data on our servers.<br><br>
+    - Local Storage: All the personal event data you enter stays securely on your device.<br>
+    - iCloud Storage: If you choose to enable iCloud synchronization, your personal event data is stored in your personal iCloud account. This process is handled solely by Apple and is subject to Apple's privacy policies.</p>
 
-                <p>All the information stays <em><strong>anonymous</strong></em> and is only used for the app's functionality.</p>
+    <p><strong>We do not collect any data that directly identifies you</strong><br>
+    The information you provide below is completely <em><strong>anonymous</strong></em> and cannot be linked to your identity. It is used solely to ensure that the app functions as intended. This includes:</p>
 
-                <p><strong>Usage Analytics</strong><br>
-                We use Firebase Analytics to track which pages you visit in our app (for example, the Month Page or Year Page). No personal data is collected. Only <em><strong>anonymous</strong></em> page view data is gathered to help improve the app.</p>
+    <p>- Country: defined as the country you select, is used to provide you with a personalized national holidays calendar, featuring public holidays specific to your country.<br>
+    - Company Name: defined as the company you select, is used to generate a holiday calendar event that reflects your organization's holiday schedule.<br>
+    - Shift Schedule: defined a the shifts you enter. Used for for analytical purposes, helping us understand usage patterns and improve the service.<br>
+    - Calendar Image: If you choose to share your calendar image, we will use it only to populate your in-app calendar. This image is not shared with any third party and is used solely for app functionality.</p>
 
-                <p><strong>Syncing and Backup</strong><br>
-                You can use the app completely on your device without having to sign in or sign up. If you want your data to be backed up or synced across your iOS devices, you can enable iCloud synchronization. When you do this, your data is transferred to and stored in your personal iCloud account. This process is managed entirely by Apple's iCloud service and follows Apple's privacy policies.</p>
+    <p>All the information stays <em><strong>anonymous</strong></em> and is only used for the app's functionality.</p>
 
-                <p><strong>Your Rights</strong><br>
-                You have the following rights regarding your data:</p>
+    <p><strong>Usage Analytics</strong><br>
+    We use Firebase Analytics to track which pages you visit in our app (for example, the Month Page or Year Page). No personal data is collected. Only <em><strong>anonymous</strong></em> page view data is gathered to help improve the app.</p>
 
-                <p>- Right to Be Informed: You can learn how we collect, use, and store your data.<br>
-                - Right of Access: You can ask to see the data you have provided.<br>
-                - Right to Correct: If something is wrong with your data, you can ask us to fix it.<br>
-                - Right to Delete: You may ask us to delete your data when appropriate.<br>
-                - Right to Withdraw Consent: You can stop us from processing your data at any time.</p>
+    <p><strong>Syncing and Backup</strong><br>
+    You can use the app completely on your device without having to sign in or sign up. If you want your data to be backed up or synced across your iOS devices, you can enable iCloud synchronization. When you do this, your data is transferred to and stored in your personal iCloud account. This process is managed entirely by Apple's iCloud service and follows Apple's privacy policies.</p>
 
-                <p>To exercise any of these rights, please contact us using the details below.</p>
+    <p><strong>Your Rights</strong><br>
+    You have the following rights regarding your data:</p>
 
-                <p><strong>Complaint or Objection Filing</strong><br>
-                If you have any questions or concerns about how we handle your data, please contact us.</p>
+    <p>- Right to Be Informed: You can learn how we collect, use, and store your data.<br>
+    - Right of Access: You can ask to see the data you have provided.<br>
+    - Right to Correct: If something is wrong with your data, you can ask us to fix it.<br>
+    - Right to Delete: You may ask us to delete your data when appropriate.<br>
+    - Right to Withdraw Consent: You can stop us from processing your data at any time.</p>
 
-                <p><strong>Updates</strong><br>
-                We may update this privacy policy at any time. Your rights will not be reduced without your clear consent. Any changes will be posted on this page. Check this policy regularly to stay informed.</p>
+    <p>To exercise any of these rights, please contact us using the details below.</p>
 
-                <p>By using the "ZAM Calendar" app developed by "Dama Code For Information Technology", you agree that you have read and understood this Privacy Policy and consent to the collection and use of your data as outlined.</p>
+    <p><strong>Complaint or Objection Filing</strong><br>
+    If you have any questions or concerns about how we handle your data, please contact us.</p>
 
-                <p><strong>Contact Details</strong></p>
-                <p>Dama Code For Information Technology -one partner-<br>
-                Address: Jubail, Eastern Province, 35513, Saudi Arabia<br>
-                E-mail: info@damacode.com<br>
-                Saudi Business Center Authentication Number# 0000155228</p>
+    <p><strong>Updates</strong><br>
+    We may update this privacy policy at any time. Your rights will not be reduced without your clear consent. Any changes will be posted on this page. Check this policy regularly to stay informed.</p>
 
-                <p>Date of Last Update: March 11, 2025</p>
-            </div>
-        </div>
-    </main>
+    <p>By using the "ZAM Calendar" app developed by "Dama Code For Information Technology", you agree that you have read and understood this Privacy Policy and consent to the collection and use of your data as outlined.</p>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__content">
-            <div class="footer__company-info">
-                ZAM Calendar App Developed by<br>
-                Dama Code For Information Technology Company <br>
-                Jubail, Eastern Province, 35513, Saudi Arabia<br>
-                Saudi Business Center Authentication Number 0000155228
-            </div>
+    <p><strong>Contact Details</strong></p>
+    <p>Dama Code For Information Technology -one partner-<br>
+    Address: Jubail, Eastern Province, 35513, Saudi Arabia<br>
+    E-mail: info@damacode.com<br>
+    Saudi Business Center Authentication Number# 0000155228</p>
 
-            <div class="footer__copyright">
-                <p>&copy; 2025, Dama Code For Information Technology Company</p>
-                <ul class="policies">
-                    <li><a href="/privacy-policy.html">Privacy policy</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <div class="divider"></div>
+    <p class="muted">Date of Last Update: <span>March 11, 2025</span></p>
+  </main>
+
+  <footer>
+    <p class="muted">© 2025, Dama Code For Information Technology Company</p>
+  </footer>
+
+  <script>
+    // Language switching functionality (same behavior as template)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'ar') {
+          // Redirect to Arabic privacy policy
+          window.location.href = '/policies/privacy-policy-ar.html';
+        }
+        // If already on English, no need to do anything
+      });
+    });
+  </script>
 </body>
 </html>
