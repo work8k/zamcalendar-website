@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic metadata -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zam Calendar</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
-    /* ---------- Reset ---------- */
     * { margin:0; padding:0; box-sizing:border-box; }
 
-    /* ---------- Page layout ---------- */
     body {
-      /* System font stack */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-      /* Dark background */
       background: #0a0a0a;
       color: #fff;
 
-      /* Center content */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
 
-      /* Default alignment */
       text-align: center;
 
-      /* Spacing */
       padding: 40px;
     }
 
-    /* ---------- Language Switcher ---------- */
     .lang-switcher {
       position: absolute;
       top: 20px;
@@ -64,12 +57,10 @@
     }
 
     .lang-btn.active {
-      /* Keep it clean: underline only */
       background: transparent;
       text-decoration: underline;
     }
 
-    /* ---------- Hero Section ---------- */
     h1 {
       font-size: 3.5em;
       font-weight: 700;
@@ -87,9 +78,8 @@
       color: #9ca3af;
       margin-bottom: 18px;
 
-      /* Force the tagline to look like multiple lines even on big screens */
-      max-width: 56ch;          /* Controls wrapping width */
-      line-height: 1.65;        /* Makes multi-line look nicer */
+      max-width: 56ch;          
+      line-height: 1.65;        
     }
 
     .download-label {
@@ -98,7 +88,6 @@
       color: #d1d5db;
     }
 
-    /* ---------- App Card ---------- */
     .app-card {
       display: inline-block;
       background: #111;
@@ -131,17 +120,68 @@
       font-size: 1em;
     }
 
-    /* ---------- Screenshot Image ---------- */
-    .app-screenshot {
+    .screenshot-carousel {
       width: 100%;
-      max-width: 420px;
+      max-width: 900px;
+      margin-top: 40px;
+      padding: 40px 0;
+      overflow: visible;
+    }
+
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow: visible;
+    }
+
+    .swiper-slide {
+      width: 280px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      max-width: 280px;
       height: auto;
       border-radius: 24px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transition: all 0.4s ease;
+    }
+
+    .swiper-slide-active img {
+      box-shadow: 0 30px 60px rgba(168, 85, 247, 0.3);
+    }
+
+    .swiper-pagination-bullet {
+      background: #6b7280;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #a855f7;
+      opacity: 1;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #a855f7;
       transition: opacity 0.3s ease;
     }
 
-    /* ---------- App Store Button ---------- */
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      opacity: 0.7;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 24px;
+    }
+
     .app-store-btn {
       margin-top: 60px;
       display: inline-block;
@@ -151,7 +191,6 @@
       height: 50px;
     }
 
-    /* ---------- Footer ---------- */
     footer {
       margin-top: 100px;
       font-size: 0.85em;
@@ -168,11 +207,10 @@
       text-decoration: underline;
     }
 
-    /* ---------- Mobile ---------- */
     @media (max-width:768px){
       body {
         padding: 20px;
-        padding-top: 80px; /* Space for the switcher */
+        padding-top: 80px; 
       }
 
       .lang-switcher {
@@ -189,7 +227,6 @@
         font-size: 1em;
         margin-bottom: 30px;
 
-        /* Slightly tighter width on mobile for cleaner breaks */
         max-width: 34ch;
       }
 
@@ -217,21 +254,36 @@
         align-items: center;
         gap: 15px;
       }
+
+      .screenshot-carousel {
+        max-width: 100%;
+        padding: 20px 0;
+      }
+
+      .swiper-slide {
+        width: 200px;
+      }
+
+      .swiper-slide img {
+        max-width: 200px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- Language Switcher -->
   <div class="lang-switcher">
     <button class="lang-btn active" data-lang="en">English</button>
     <button class="lang-btn" data-lang="ar">العربية</button>
   </div>
 
-  <!-- Hero -->
   <h1><span class="highlight">Zam Calendar</span></h1>
 
-  <!-- Tagline (use <br> so it shows as multiple lines on large screens too) -->
   <p class="tagline" data-translate="tagline">
     Stay on top of your work shift schedule and keep track of<br>
     company holidays, national holidays, and school breaks.<br>
@@ -240,7 +292,6 @@
 
   <p class="download-label" data-translate="downloadLabel">Download the app from here</p>
 
-  <!-- App Store Button -->
   <div class="app-store-btn">
     <a href="https://apps.apple.com/app/apple-store/id6504942438?pt=127166334&ct=zam-website&mt=8">
       <img
@@ -250,22 +301,30 @@
     </a>
   </div>
 
-  <!-- App Screenshot -->
-  <img
-    id="app-screenshot"
-    class="app-screenshot"
-    src="assets/app-screenshot.png"
-    alt="Zam Calendar app screenshot on iPhone"
-  />
+  <div class="screenshot-carousel">
+    <div class="swiper" id="screenshot-swiper">
+      <div class="swiper-wrapper" id="screenshot-wrapper">
+        <div class="swiper-slide">
+          <img src="assets/app-screenshot-2.png" alt="Zam Calendar - Calendar View" data-en="assets/app-screenshot-2.png" data-ar="assets/app-screenshot-2-ar.png" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/app-screenshot.png" alt="Zam Calendar - Main View" data-en="assets/app-screenshot.png" data-ar="assets/app-screenshot-ar.png" />
+        </div>
+        <div class="swiper-slide">
+          <img src="assets/app-screenshot-3.png" alt="Zam Calendar - Schedule View" data-en="assets/app-screenshot-3.png" data-ar="assets/app-screenshot-3-ar.png" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
 
-  <!-- Footer (English + Arabic versions, switched by JS) -->
   <footer>
-    <!-- English footer (default) -->
     <div id="footer-en">
       <p>&copy; 2025 Dama Code • <a href="policies/privacy-policy.html" id="privacy-link">Privacy Policy</a> • <a href="mailto:info@damacode.com?subject=ZAM%20Calendar%20Support">Contact us</a></p>
     </div>
 
-    <!-- Arabic footer (shown only when Arabic is selected) -->
     <div id="footer-ar" style="display:none;">
       <p>شركة داما كود لتقنية المعلومات</p>
       <p>الجبيل - المملكة العربية السعودية</p>
@@ -277,15 +336,12 @@
   </footer>
 
   <script>
-    // Translations for tagline and screenshot
-    // Note: tagline uses <br> so it renders as multiple lines on large screens too.
     const translations = {
       en: {
         tagline:
           "Stay on top of your work shift schedule and keep track of<br>" +
           "company holidays, national holidays, and school breaks.<br>" +
           "All in one smart calendar.",
-        screenshot: "assets/app-screenshot.png",
         downloadLabel: "Download the app now!"
       },
       ar: {
@@ -293,32 +349,24 @@
           "كن دائمًا على اطلاع بجدول العمل -الشفت-<br>" +
           "وإجازات الشركة الرسمية والاجازات الوطنية، وإجازات المدارس،<br>" +
           "كلها في تقويم ذكي واحد",
-        screenshot: "assets/app-screenshot-ar.png",
         downloadLabel: "قم بتحميل التطبيق الآن!"
       }
     };
 
-    // Get saved language or default to English
     let currentLang = localStorage.getItem('language') || 'en';
 
-    // Apply language on page load (and whenever user changes it)
     function applyLanguage(lang) {
-      // Save language
       currentLang = lang;
       localStorage.setItem('language', lang);
 
-      // Update HTML attributes
       document.documentElement.lang = lang;
       document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
 
-      // Keep page centered (your original behavior)
       document.body.style.textAlign = 'center';
 
-      // Move switcher based on language and screen size
       const langSwitchers = document.querySelectorAll('.lang-switcher');
       langSwitchers.forEach(langSwitcher => {
         if (window.innerWidth > 768) {
-          // Desktop: switch sides based on language
           if (lang === 'ar') {
             langSwitcher.style.left = 'auto';
             langSwitcher.style.right = '20px';
@@ -327,7 +375,6 @@
             langSwitcher.style.left = '20px';
           }
         } else {
-          // Mobile: switch sides based on language
           if (lang === 'ar') {
             langSwitcher.style.left = 'auto';
             langSwitcher.style.right = '10px';
@@ -338,32 +385,27 @@
         }
       });
 
-      // Update all translated elements
       document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
 
-        // Tagline needs HTML (<br>), others should stay plain text
         if (key === 'tagline' && translations[lang][key]) {
           element.innerHTML = translations[lang][key];
           return;
         }
 
-        // Default: plain text for safety
         if (translations[lang][key]) {
           element.textContent = translations[lang][key];
         }
       });
 
-      // Update screenshot image
-      const screenshot = document.getElementById('app-screenshot');
-      screenshot.src = translations[lang].screenshot;
+      const carouselImages = document.querySelectorAll('#screenshot-wrapper img');
+      carouselImages.forEach(img => {
+        const newSrc = img.getAttribute(`data-${lang}`);
+        if (newSrc) {
+          img.src = newSrc;
+        }
+      });
 
-      // Update screenshot alt text
-      screenshot.alt = (lang === 'ar')
-        ? 'لقطة شاشة لتطبيق Zam Calendar على الآيفون'
-        : 'Zam Calendar app screenshot on iPhone';
-
-      // Switch footer content based on language
       const footerEn = document.getElementById('footer-en');
       const footerAr = document.getElementById('footer-ar');
       if (footerEn && footerAr) {
@@ -376,7 +418,6 @@
         }
       }
 
-      // Update active button style
       document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
         if (btn.getAttribute('data-lang') === lang) {
@@ -385,10 +426,8 @@
       });
     }
 
-    // Initialize language on page load
     applyLanguage(currentLang);
 
-    // Click handlers for language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
@@ -396,9 +435,83 @@
       });
     });
 
-    // Keep switcher positioning correct on resize
     window.addEventListener('resize', () => {
       applyLanguage(currentLang);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('#screenshot-swiper', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      initialSlide: 1,
+      loop: false,
+      slideToClickedSlide: true,
+
+      coverflowEffect: {
+        rotate: 0,           
+        stretch: 0,          
+        depth: 200,         
+        modifier: 1,       
+        slideShadows: false, 
+        scale: 0.85,         
+      },
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      keyboard: {
+        enabled: true,
+      },
+
+      on: {
+        init: function() {
+          this.el.dir = document.documentElement.dir;
+        }
+      }
+    });
+
+    const originalApplyLanguage = applyLanguage;
+    applyLanguage = function(lang) {
+      originalApplyLanguage(lang);
+      if (swiper) {
+        swiper.changeLanguageDirection(lang === 'ar' ? 'rtl' : 'ltr');
+        swiper.update();
+      }
+    };
+
+    applyLanguage(currentLang);
+
+    let mouseDownX = 0;
+    let mouseDownY = 0;
+
+    document.querySelectorAll('.swiper-slide').forEach((slide, index) => {
+      slide.style.cursor = 'pointer';
+
+      slide.addEventListener('mousedown', (e) => {
+        mouseDownX = e.clientX;
+        mouseDownY = e.clientY;
+      });
+
+      slide.addEventListener('mouseup', (e) => {
+        const deltaX = Math.abs(e.clientX - mouseDownX);
+        const deltaY = Math.abs(e.clientY - mouseDownY);
+
+        if (deltaX < 10 && deltaY < 10) {
+          swiper.slideTo(index);
+        }
+      });
     });
   </script>
 </body>
