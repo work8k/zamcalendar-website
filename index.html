@@ -8,7 +8,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
+
     * { margin:0; padding:0; box-sizing:border-box; }
+
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;    
+      overflow-x: clip;       
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -25,6 +34,8 @@
       text-align: center;
 
       padding: 40px;
+
+      position: relative;
     }
 
     .lang-switcher {
@@ -78,8 +89,8 @@
       color: #9ca3af;
       margin-bottom: 18px;
 
-      max-width: 56ch;          
-      line-height: 1.65;        
+      max-width: 56ch;
+      line-height: 1.65;
     }
 
     .download-label {
@@ -125,13 +136,18 @@
       max-width: 900px;
       margin-top: 40px;
       padding: 40px 0;
-      overflow: visible;
+
+
+      overflow-x: hidden;    
+      overflow-x: clip;       
     }
 
     .swiper {
       width: 100%;
       padding-top: 20px;
       padding-bottom: 50px;
+
+    
       overflow: visible;
     }
 
@@ -150,6 +166,7 @@
       border-radius: 24px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.5);
       transition: all 0.4s ease;
+      display: block; 
     }
 
     .swiper-slide-active img {
@@ -210,7 +227,7 @@
     @media (max-width:768px){
       body {
         padding: 20px;
-        padding-top: 80px; 
+        padding-top: 80px;
       }
 
       .lang-switcher {
@@ -226,7 +243,6 @@
       p.tagline {
         font-size: 1em;
         margin-bottom: 30px;
-
         max-width: 34ch;
       }
 
@@ -336,6 +352,7 @@
   </footer>
 
   <script>
+
     const translations = {
       en: {
         tagline:
@@ -443,6 +460,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
+
     const swiper = new Swiper('#screenshot-swiper', {
       effect: 'coverflow',
       grabCursor: true,
@@ -453,12 +471,12 @@
       slideToClickedSlide: true,
 
       coverflowEffect: {
-        rotate: 0,           
-        stretch: 0,          
-        depth: 200,         
-        modifier: 1,       
-        slideShadows: false, 
-        scale: 0.85,         
+        rotate: 0,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: false,
+        scale: 0.85,
       },
 
       pagination: {
@@ -481,6 +499,7 @@
         }
       }
     });
+
 
     const originalApplyLanguage = applyLanguage;
     applyLanguage = function(lang) {
