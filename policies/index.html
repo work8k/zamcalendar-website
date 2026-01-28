@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policies - Zam Calendar Apps" />
+  <title>Privacy Policies - Zam Calendar</title>
+
+  <style>
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header, footer { padding: 24px; }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+      flex: 1;
+    }
+
+    a { color: #9ca3af; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    h1 { font-size: 2.2em; margin-bottom: 16px; font-weight: 700; }
+    p { color: #9ca3af; line-height: 1.8; margin: 12px 0; font-size: 1em; }
+
+    .muted { color: #9ca3af; }
+    nav { display:flex; gap:16px; align-items:center; }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      border-radius: 12px;
+      padding: 8px;
+      z-index: 1000;
+    }
+    .lang-btn {
+      padding: 8px 16px;
+      background: transparent;
+      color: #9ca3af;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .lang-btn.active {
+      background: transparent;
+      text-decoration: underline;
+    }
+
+    /* App selection cards */
+    .app-cards {
+      display: flex;
+      gap: 24px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .app-card {
+      flex: 1;
+      min-width: 280px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 32px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      border-color: #a855f7;
+      background: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .app-card h2 {
+      font-size: 1.4em;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .app-card p {
+      color: #9ca3af;
+      font-size: 0.95em;
+      margin: 0;
+    }
+
+    @media (max-width:768px){
+      .lang-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+      }
+      .lang-btn {
+        padding: 3px 8px;
+        font-size: 0.7em;
+        border-radius: 4px;
+      }
+      .app-cards {
+        flex-direction: column;
+      }
+      .app-card {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Language Switcher -->
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="ar">العربية</button>
+  </div>
+
+  <header>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="mailto:info@damacode.com?subject=ZAM%20Calendar%20Support">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Privacy Policies</h1>
+    <p>Select an app to view its privacy policy:</p>
+
+    <div class="app-cards">
+      <a href="privacy-policy.html" class="app-card">
+        <h2>Zam Calendar</h2>
+        <p>Privacy policy for the Zam Calendar app</p>
+      </a>
+
+      <a href="privacy-policy-business.html" class="app-card">
+        <h2>Zam Calendar Business</h2>
+        <p>Privacy policy for the Zam Calendar Business app</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p class="muted">© 2025, Dama Code For Information Technology Company</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang === 'ar') {
+          window.location.href = '/ar/policies/index.html';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

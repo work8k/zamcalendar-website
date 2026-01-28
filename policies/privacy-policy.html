@@ -101,8 +101,7 @@
   <header>
     <nav>
       <a href="../index.html">Home</a>
-
-      <!-- Contact opens the user's default email app -->
+      <a href="index.html">Back to Privacy Policies</a>
       <a href="mailto:info@damacode.com?subject=ZAM%20Calendar%20Support">Contact</a>
     </nav>
   </header>
@@ -160,7 +159,7 @@
     <p>By using the "ZAM Calendar" app developed by "Dama Code For Information Technology", you agree that you have read and understood this Privacy Policy and consent to the collection and use of your data as outlined.</p>
 
     <p><strong>Contact Details</strong></p>
-    <p>Dama Code For Information Technology -one partner-<br>
+    <p>Dama Code For Information Technology<br>
     Address: Jubail, Eastern Province, 35513, Saudi Arabia<br>
     E-mail: info@damacode.com<br>
     Saudi Business Center Authentication Number# 0000155228</p>
@@ -174,13 +173,13 @@
   </footer>
 
   <script>
-    // Language switching functionality (same behavior as template)
+    // Language switching functionality
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const lang = btn.getAttribute('data-lang');
         if (lang === 'ar') {
           // Redirect to Arabic privacy policy
-          window.location.href = '/policies/privacy-policy-ar.html';
+          window.location.href = '/ar/policies/privacy-policy.html';
         }
         // If already on English, no need to do anything
       });
