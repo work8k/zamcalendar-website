@@ -20,8 +20,10 @@
       flex-direction: column;
     }
 
+    /* Header & footer spacing */
     header, footer { padding: 24px; }
 
+    /* Main content wrapper */
     main {
       width: 100%;
       max-width: 900px;
@@ -29,19 +31,27 @@
       padding: 32px 24px 64px;
     }
 
+    /* Link styling */
     a { color: #9ca3af; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* Typography */
     h1 { font-size: 2.2em; margin-bottom: 16px; font-weight: 700; }
     h2 { font-size: 1.5em; margin: 32px 0 16px; font-weight: 600; }
 
+    /* Paragraph styling */
     p { color: #9ca3af; line-height: 1.8; margin: 12px 0; font-size: 1em; }
     strong { color: #e5e7eb; font-weight: 600; }
+
+    /* List styling */
     ul { margin: 8px 0 8px 18px; color: #9ca3af; }
     li { margin: 6px 0; }
 
+    /* Utility classes */
     .muted { color: #9ca3af; }
     .divider { height: 1px; background: #222; margin: 24px 0; }
+
+    /* Navigation */
     nav { display:flex; gap:16px; align-items:center; }
 
     /* Language Switcher */
@@ -57,6 +67,8 @@
       padding: 8px;
       z-index: 1000;
     }
+
+    /* Language buttons */
     .lang-btn {
       padding: 8px 16px;
       background: transparent;
@@ -76,6 +88,7 @@
       text-decoration: underline;
     }
 
+    /* Responsive adjustments */
     @media (max-width:768px){
       .lang-switcher {
         top: 10px;
@@ -101,7 +114,10 @@
   <header>
     <nav>
       <a href="../index.html">Home</a>
-      <a href="mailto:info@damacode.com?subject=ZAM%20Calendar%20Business%20Support">Contact</a>
+
+      <a href="#account-deletion">Account Deletion</a>
+
+      <a href="mailto:support@zamcalendar.com?subject=ZAM%20Calendar%20Business%20Support">Contact</a>
     </nav>
   </header>
 
@@ -118,12 +134,12 @@
 
     <p><strong>Company Domain Sign In</strong></p>
     <p>
-      This "Zam Calendar business" app will ask you to enter your company email address (for example: <span class="muted">name@company.com</span>) Only to verify your company association.<strong>Your email is deleted immediately afterward.</strong>
+      This "Zam Calendar business" app will ask you to enter your company email address (for example: <span class="muted">name@company.com</span>) only to verify your company association.
+      <strong>Your email is deleted immediately afterward.</strong>
       We use it only to send a one-time verification code and to verify your company domain.
     </p>
     <ul>
       <li><strong>We do not save your email address</strong> in our servers.</li>
-      <li><strong>We do not connect your email</strong> to your identity for tracking.</li>
       <li><strong>We do not share your email</strong> with anyone for advertising or marketing.</li>
       <li><strong>We do not use your email</strong> for newsletters, promotions, or ads.</li>
       <li>Your email address is used only to complete verification and is deleted immediately afterward.</li>
@@ -141,6 +157,7 @@
       It is saved in your official Apple Calendar app.
       We <em><strong>never</strong></em> have access to your event data.
       We <em><strong>never</strong></em> upload or save your personal event data on our servers.<br><br>
+      <!-- iCloud note -->
       - iCloud Storage: If you choose to enable iCloud synchronization, your personal event data is stored in your personal Apple iCloud account.
       This process is handled solely by Apple and is subject to Apple's privacy policies.
     </p>
@@ -162,6 +179,21 @@
 
     <p>To exercise any of these rights, please contact us using the details below.</p>
 
+    <p><strong></strong>Account Deletion</strong></p>
+    <p>
+      If you want to request account deletion / data deletion, please contact us by email.
+    </p>
+    <ul>
+      <li>
+        Email us at:
+        <a href="mailto:support@zamcalendar.com?subject=Delete%20my%20account">support@zamcalendar.com</a>
+      </li>
+      <li>
+        Use this subject line:
+        <strong>Delete my account</strong>
+      </li>
+    </ul>
+
     <p><strong>Updates</strong></p>
     <p>
       We may update this privacy policy at any time. Any changes will be posted on this page.
@@ -177,7 +209,8 @@
     </p>
 
     <div class="divider"></div>
-    <p class="muted">Date of Last Update: <span>January 28, 2026</span></p>
+    <!-- Last updated date -->
+    <p class="muted">Date of Last Update: <span>February 2, 2026</span></p>
   </main>
 
   <footer>
@@ -187,8 +220,12 @@
   <script>
     // Language switching functionality
     document.querySelectorAll('.lang-btn').forEach(btn => {
+      // Click handler for language buttons
       btn.addEventListener('click', () => {
+        // Read selected language
         const lang = btn.getAttribute('data-lang');
+
+        // If Arabic is selected, redirect to Arabic page
         if (lang === 'ar') {
           window.location.href = '/ar/policies/privacy-policy-business.html';
         }
